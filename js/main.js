@@ -1,5 +1,11 @@
 // Main JavaScript for Interactions and Logic
 
+// Always land on the hero/top of the page
+if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+}
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
