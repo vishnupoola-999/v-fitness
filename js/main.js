@@ -240,4 +240,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         renderFAQs('all');
     }
+
+    // Chatbot Logic
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const closeBot = document.getElementById('close-bot');
+    const botInput = document.getElementById('bot-input');
+    const sendBotMsg = document.getElementById('send-bot-msg');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+
+    if(chatbotToggle && chatbotContainer) {
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+            if(chatbotContainer.classList.contains('active')) botInput.focus();
+        });
+        closeBot.addEventListener('click', () => chatbotContainer.classList.remove('active'));
+
+        const getBotResponse = (text) => {
+            const lower = text.toLowerCase();
+            if (lower.includes('price') || lower.includes('cost') || lower.includes('fee') || lower.includes('plans')) {
+                return "General membership is ₹1,500/mo. Hybrid coaching is ₹3,500/mo, and 1-on-1 PT is ₹8,000/mo. See the Pricing section for Yearly discounts!";
+            } else if (lower.includes('time') || lower.includes('open') || lower.includes('hour')) {
+                return "We are open 24/7-style until 1 AM every single day!";
+            } else if (lower.includes('pcod') || lower.includes('pcos') || lower.includes('hormone')) {
+                return "Coach Samee specializes in PCOD/PCOS recomposition! He focuses on insulin sensitivity, stress management, and strength training. Hit the WhatsApp button to chat with him!";
+            } else if (lower.includes('location') || lower.includes('where') || lower.includes('address')) {
+                return "We are located at Janpak Shaheed, Narsampet Rd, beside Bodrai, Gorrekunta Village, Warangal, TS 506002.";
+            } else if (lower.includes('contact') || lower.includes('whatsapp') || lower.includes('call') || lower.includes('phone') || lower.includes('number')) {
+                return "You can immediately reach Coach Samee on WhatsApp at +91 073300 60299 or DM him on Instagram @samee__fitness_coach_.";
+            } else if (lower.includes('hi') || lower.includes('hello') || lower.includes('hey')) {
+                return "Hi there! Welcome to V-Shape Fitness Arena. How can I help you today?";
+            } else {
+                return "That's a great question! For detailed info, please ping Coach Samee directly on WhatsApp at +91 073300 60299. He'll be happy to answer personally!";
+            }
+        };
+
+        const handleSend = () => {
+            const text = botInput.value.trim();
+            if(!text) return;
+            
+            // Add user msg
+            chatbotMessages.innerHTML += `<div class="user-msg fade-in">${text}</div>`;
+            botInput.value = '';
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            // Simulate typing delay
+            setTimeout(() => {
+                const response = getBotResponse(text);
+                chatbotMessages.innerHTML += `<div class="bot-msg fade-in">${response}</div>`;
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 500);
+        };
+
+        sendBotMsg.addEventListener('click', handleSend);
+        botInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') handleSend();
+        });
+    }
 });

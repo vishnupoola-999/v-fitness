@@ -492,6 +492,29 @@
         </a>
     </div>
 
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <span class="bot-status"></span>
+                V-Shape Assistant
+            </div>
+            <button class="close-bot" id="close-bot">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="bot-msg">Hi! I'm the V-Shape AI Assistant. How can I outline Coach Samee's programs or gym timings for you?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="bot-input" placeholder="Type your question...">
+            <button id="send-bot-msg" aria-label="Send Message">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+        </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open Chatbot">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+
     <!-- Scripts -->
     <script type="importmap">
         {
