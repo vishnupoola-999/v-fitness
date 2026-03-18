@@ -301,12 +301,106 @@ input:checked + .slider:before { transform: translateX(26px); background-color: 
 .chatbot-input button { background: var(--clr-neon-blue); border: none; width: 40px; height: 40px; border-radius: 50%; color: #000; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
 .chatbot-input button:hover { background: #fff; transform: scale(1.05); }
 
+/* ===================== TABLET ===================== */
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .programs-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .philosophy-bullets { grid-template-columns: 1fr; }
+}
+
+/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
+    /* Nav */
     .desktop-nav { display: none; }
     .nav-actions .btn { display: none; }
     .mobile-menu-toggle { display: flex; }
-    .challenge-box { flex-direction: column; gap: 2rem; }
+    .nav-container { padding: 1rem; }
+
+    /* Spacing */
+    .section { padding: 3rem 1rem; }
+    .container { padding: 0 1rem; }
+
+    /* Hero */
+    .hero-section { min-height: auto; padding: 6rem 0 3rem; }
+    .canvas-container { opacity: 0.3; }
+    .hero-content { padding: 0 1rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-badges { gap: 0.5rem; }
+    .badge { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
+    .hero-ctas { flex-direction: column; align-items: stretch; gap: 1rem; }
+    .hero-ctas .btn { width: 100%; text-align: center; }
+    .chips-container { gap: 0.5rem; }
+    .chip { font-size: 0.8rem; padding: 0.5rem 0.8rem; }
+    .scroll-indicator { display: none; }
+
+    /* IG Highlights */
+    .highlight-flex { gap: 1rem; }
+    .highlight-ring { width: 50px; height: 50px; }
+    .highlight-item span { font-size: 0.75rem; }
+
+    /* Social Proof */
+    .social-proof-strip { flex-direction: column; gap: 1rem; padding: 1rem; }
+
+    /* Grids */
+    .auto-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .video-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    /* About */
+    .philosophy-bullets { grid-template-columns: 1fr; gap: 1rem; }
+    .coach-card { aspect-ratio: auto; height: 350px; }
+    .coach-tag { bottom: -1rem; left: 1rem; padding: 1rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.5rem; }
+
+    /* Pricing */
     .price-card.popular { transform: none; }
-    .auto-grid { grid-template-columns: 1fr; }
-    .hero-ctas { flex-direction: column; align-items: flex-start; }
+    .price-amount .value { font-size: 2.5rem; }
+
+    /* Challenge */
+    .challenge-box { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
+
+    /* Schedule */
+    .s-timeline { flex-direction: column; }
+    .s-day-col { min-width: 100%; }
+
+    /* Transformations */
+    .t-card { min-width: 280px; }
+    .filters { gap: 0.5rem; }
+    .filter-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
+
+    /* Contact */
+    .contact-form-container, .contact-card { padding: 1.5rem; }
+
+    /* FAQ */
+    .faq-categories { gap: 0.5rem; }
+    .faq-cat-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
+    .faq-question { font-size: 1rem; padding: 1rem 0; }
+
+    /* Floating CTAs */
+    .floating-ctas { bottom: 1rem; right: 1rem; }
+    .float-trial { font-size: 0.75rem; padding: 0.8rem 1rem; }
+    .float-wa { width: 50px; height: 50px; }
+
+    /* Chatbot */
+    .chatbot-toggle { bottom: 1rem; left: 1rem; width: 50px; height: 50px; }
+    .chatbot-container { left: 0.5rem; right: 0.5rem; bottom: 4.5rem; width: auto; height: 400px; }
 }
+
+/* =============== SMALL PHONES =============== */
+@media (max-width: 400px) {
+    .hero-title { font-size: 1.6rem; }
+    .hero-subtitle { font-size: 0.9rem; }
+    .section-title { font-size: 1.3rem; }
+    .price-amount .value { font-size: 2rem; }
+    .highlight-flex { gap: 0.6rem; }
+    .highlight-ring { width: 42px; height: 42px; }
+    .t-card { min-width: 250px; }
+    .coach-card { height: 280px; }
+}
+
