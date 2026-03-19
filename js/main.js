@@ -303,4 +303,34 @@ document.addEventListener('DOMContentLoaded', () => {
             if(e.key === 'Enter') handleSend();
         });
     }
+    // v8labs Scroll Reveal Animation Logic
+    const revealElements = document.querySelectorAll('.reveal-v8, .reveal-left-v8, .text-reveal-v8');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // If it's a staggered container, handle children
+                if (entry.target.classList.contains('stagger-v8')) {
+                    const children = entry.target.children;
+                    Array.from(children).forEach((child, index) => {
+                        child.style.transitionDelay = `${index * 0.15}s`;
+                        child.classList.add('active');
+                    });
+                }
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Simple Parallax Effect
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const parallaxElements = document.querySelectorAll('.parallax-v8');
+        parallaxElements.forEach(el => {
+            const speed = el.dataset.speed || 0.2;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
 });
